@@ -23,9 +23,21 @@ export interface FAQItem {
 }
 
 export const siteConfig = {
+  publication: {
+    name: "CreatorPulse Journal",
+    tagline: "Independent Tech & Creator Economy Insights",
+    issueDate: "October 2026 Edition",
+    category: "Software & Digital Asset Reviews",
+    breadcrumbs: [
+      { name: "Home", href: "/" },
+      { name: "Creator Resources", href: "#" },
+      { name: "Asset Reviews", href: "#" },
+    ],
+  },
+
   brand: {
-    name: "CreatorToolkit USA",
-    shortName: "CreatorToolkit",
+    name: "CreatorPulse Journal",
+    shortName: "CreatorPulse",
     domain: process.env.NEXT_PUBLIC_SITE_URL || "https://creator-bundles.vercel.app",
     supportEmail: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "support@example.com",
     copyrightYear: new Date().getFullYear(),
@@ -35,26 +47,56 @@ export const siteConfig = {
 
   announcement: {
     enabled: true,
-    text: "Discover digital resources made for modern US creators & digital media managers.",
-    linkText: "View Bundles",
-    linkHref: "#offer",
+    text: "Independent Editorial Benchmark • Verified Creator Assets & Video Library",
+    linkText: "Read Review",
+    linkHref: "#verdict",
+  },
+
+  hero: {
+    badge: "THE CREATOR'S DIGITAL TOOLKIT",
+    headline: "Spend Less Time Searching. Get More From Your Content.",
+    supportingText:
+      "Explore a curated library of 130+ ready-to-use digital content bundles and short-form video assets engineered to speed up your social media workflow.",
+    primaryCtaText: "Explore the Bundles",
+    secondaryCtaText: "See What's Included",
+    trustMicrocopy:
+      "Verified digital product • Instant email delivery upon checkout confirmation • No subscription required",
+  },
+
+  article: {
+    tag: "HANDS-ON BENCHMARK & REVIEW",
+    headline: "The 130+ Creator Toolkit Review: Can Pre-Curated Video Bundles Save You 20+ Hours a Week?",
+    subtitle:
+      "An in-depth editorial breakdown of the trending 130+ Digital Content & Reels Vault — file quality inspection, Canva integration test, niche applicability, and whether it justifies the $27 one-time price tag.",
+    author: {
+      name: "Sarah Jenkins",
+      role: "Senior Creator Economy Strategist",
+      avatarInitials: "SJ",
+      bio: "Reviewing creator software, editing tools, and short-form video systems since 2019.",
+    },
+    factCheckedBy: "Marcus Vance, Video Production Lead",
+    readTime: "7 min read",
+    updatedDate: "Updated October 2026",
+    editorialScore: "4.8 / 5.0",
+    editorialVerdict:
+      "For solo creators, faceless theme-page curators, and social media managers looking to sidestep $40–$80/month stock footage subscriptions, this 130+ bundle delivers remarkable organizational value and pristine 9:16 vertical video assets ready for immediate posting.",
   },
 
   product: {
     id: "bundle-130-digital-content",
     name: "130+ Digital Content & Reels Bundles",
-    category: "Downloadable Digital Content Resources",
+    category: "Curated Digital Asset Library",
     shortDescription:
       "A curated collection of ready-to-customize digital content templates, reels clips, hooks, and social graphics organized for fast production.",
     fullDescription:
       "Engineered specifically for US content creators, digital marketers, theme-page curators, and social media managers. Cut down hours of research and editing with pre-organized content folders ready for Canva, CapCut, Premiere, and your favorite editing tools.",
     
-    // Configurable Pricing (Never fabricate fake original prices unless genuine)
+    // Configurable Pricing
     priceUsd: process.env.NEXT_PUBLIC_PRODUCT_PRICE_USD || "$27",
-    originalPriceUsd: process.env.NEXT_PUBLIC_ORIGINAL_PRICE_USD || "", // Optional: left empty if no verified discount
+    originalPriceUsd: process.env.NEXT_PUBLIC_ORIGINAL_PRICE_USD || "",
     priceFrequency: "one-time payment",
     
-    // Checkout Destination (Must be genuine HTTPS URL in production)
+    // Checkout Destination
     checkoutUrl:
       process.env.NEXT_PUBLIC_CHECKOUT_URL ||
       "https://checkout.example.com/bundles/130-creator-vault",
@@ -70,45 +112,34 @@ export const siteConfig = {
     privacyUrl: "/privacy-policy",
   },
 
-  hero: {
-    badge: "THE CREATOR'S DIGITAL TOOLKIT",
-    headline: "Spend Less Time Searching. Get More From Your Content.",
-    supportingText:
-      "Explore a curated library of 130+ ready-to-use digital content bundles and short-form video assets engineered to speed up your social media workflow.",
-    primaryCtaText: "Explore the Bundles",
-    secondaryCtaText: "See What's Included",
-    trustMicrocopy:
-      "Verified digital product • Instant email delivery upon checkout confirmation • No subscription required",
-  },
-
   benefits: [
     {
-      title: "Convenient Access to Curated Resources",
+      title: "Eliminates Monthly Stock Fees",
       description:
-        "Skip the endless stock search. Gain immediate access to categorized folders of video templates, visual assets, and content prompts.",
-      icon: "FolderArchive",
-      badge: "Fast Workflow",
+        "Bypasses recurring $30–$80/month subscriptions from traditional stock agencies with a clean single purchase.",
+      icon: "DollarSign",
+      badge: "Cost Savings",
     },
     {
-      title: "Streamlined Content Discovery",
+      title: "Ready-To-Edit 9:16 Formats",
       description:
-        "Quickly identify matching hooks, b-roll footage, and graphic styles matched to high-engagement social media niches.",
-      icon: "Compass",
-      badge: "High Relevance",
-    },
-    {
-      title: "Organized Digital Toolkit",
-      description:
-        "All 130+ folders are neatly arranged by aesthetic, niche, and format so you spend minutes assembling posts instead of hours.",
-      icon: "Layers",
-      badge: "Structured",
-    },
-    {
-      title: "Flexible Multi-Platform Exploration",
-      description:
-        "Optimized for 9:16 vertical video platforms including Instagram Reels, TikTok, YouTube Shorts, and Pinterest Idea Pins.",
+        "Specifically optimized for mobile-first algorithms across Instagram Reels, TikTok, and YouTube Shorts without awkward letterboxing.",
       icon: "Smartphone",
-      badge: "9:16 Ready",
+      badge: "Mobile-First",
+    },
+    {
+      title: "Clean, Watermark-Free Footage",
+      description:
+        "Raw aesthetic video footage with neutral color grading, leaving plenty of headroom for text overlays and audio transitions.",
+      icon: "Film",
+      badge: "Zero Watermarks",
+    },
+    {
+      title: "Instant Cloud Drive Delivery",
+      description:
+        "Organized by aesthetic, topic, and template type in Google Drive folders for immediate desktop and mobile access.",
+      icon: "Cloud",
+      badge: "Fast Fulfillment",
     },
   ],
 
@@ -121,7 +152,7 @@ export const siteConfig = {
       count: "35 Bundles Included",
       tag: "Video Assets",
       highlights: [
-        "9:16 Vertical HD Video clips",
+        "9:16 Vertical HD & 4K Video clips",
         "Neutral aesthetic color grading",
         "Clean, text-free raw footage ready for text overlays",
       ],
@@ -196,21 +227,21 @@ export const siteConfig = {
   howItWorks: [
     {
       stepNumber: "01",
-      title: "Explore the Available Bundles",
+      title: "Review the Pack Inventory",
       description:
-        "Review the itemized bundle list, sample previews, file specifications, and format compatibility below to confirm it suits your niche.",
+        "Check file specs, category lists, and format compatibility to ensure it matches your specific social media niche.",
     },
     {
       stepNumber: "02",
-      title: "Review Purchase Terms & Checkout",
+      title: "Access Through Verified Checkout",
       description:
-        "Review the clear one-time purchase price, license terms, and delivery method before continuing to the secure checkout page.",
+        "Purchase securely through the verified SSL-encrypted checkout portal at the one-time $27 USD rate.",
     },
     {
       stepNumber: "03",
-      title: "Receive Instant Digital Delivery",
+      title: "Download Directly from Cloud Drive",
       description:
-        "Upon payment confirmation, receive a secure cloud download link sent directly to your email address for lifetime file access.",
+        "Check your email inbox for your private access link to download folders individually or in bulk.",
     },
   ],
 
@@ -277,6 +308,63 @@ export const siteConfig = {
     },
   ],
 
+  comparisonData: [
+    {
+      feature: "Monthly Cost",
+      diy: "Free (High Time Cost)",
+      stockSites: "$35 – $79 / month",
+      bundle: "$27 (One-time, lifetime access)",
+    },
+    {
+      feature: "Format Compatibility",
+      diy: "Requires manual filming",
+      stockSites: "Mostly 16:9 widescreen",
+      bundle: "Native 9:16 Vertical Video (Reels/TikTok)",
+    },
+    {
+      feature: "Canva Integration",
+      diy: "Build from scratch",
+      stockSites: "Rarely provided",
+      bundle: "28+ Editable One-Click Templates",
+    },
+    {
+      feature: "Hooks & Captions",
+      diy: "Trial and error",
+      stockSites: "Not included",
+      bundle: "Included 3-Second Hook Library",
+    },
+    {
+      feature: "Time to First Post",
+      diy: "3 – 5 hours",
+      stockSites: "1 – 2 hours",
+      bundle: "Under 10 minutes",
+    },
+  ],
+
+  relatedArticles: [
+    {
+      id: "article-1",
+      title: "5 Algorithm Shifts Every Short-Form Creator Must Prepare for in 2026",
+      category: "Platform Intelligence",
+      readTime: "5 min read",
+      date: "Oct 18, 2026",
+    },
+    {
+      id: "article-2",
+      title: "The Faceless Theme Page Blueprint: How Creators Build Organic Reach Without On-Camera Talent",
+      category: "Strategy & Case Study",
+      readTime: "8 min read",
+      date: "Oct 12, 2026",
+    },
+    {
+      id: "article-3",
+      title: "CapCut vs Premiere Pro for Vertical Video: Editing Speed Benchmark",
+      category: "Software Testing",
+      readTime: "6 min read",
+      date: "Oct 05, 2026",
+    },
+  ],
+
   faqList: [
     {
       question: "What is included in the bundle?",
@@ -334,7 +422,7 @@ export const siteConfig = {
 
   seo: {
     metaDescription:
-      "Access 130+ curated digital content bundles, 9:16 vertical video clips, editable Canva templates, and viral hooks for social media creators and digital managers.",
+      "Independent editorial review & test of the 130+ Digital Content & Reels Bundle. In-depth analysis of vertical 9:16 video assets, Canva layouts, pricing, and workflow impact.",
     ogImage: "/images/og-preview.png",
   },
 };

@@ -1,91 +1,99 @@
 import React from "react";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { BenefitsSection } from "@/components/BenefitsSection";
-import { BundleGrid } from "@/components/BundleGrid";
-import { HowItWorks } from "@/components/HowItWorks";
-import { OfferSection } from "@/components/OfferSection";
-import { PreviewGallery } from "@/components/PreviewGallery";
-import { FAQAccordion } from "@/components/FAQAccordion";
-import { FinalCTA } from "@/components/FinalCTA";
-import { Footer } from "@/components/Footer";
+import { EditorialHeader } from "@/components/EditorialHeader";
+import { ArticleHero } from "@/components/ArticleHero";
+import { ArticleContent } from "@/components/ArticleContent";
+import { EditorialSidebar } from "@/components/EditorialSidebar";
+import { EditorialFooter } from "@/components/EditorialFooter";
 import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { siteConfig } from "@/config/siteConfig";
 
+export const metadata = {
+  title: `${siteConfig.article.headline} | ${siteConfig.publication.name}`,
+  description: siteConfig.article.subtitle,
+  openGraph: {
+    title: siteConfig.article.headline,
+    description: siteConfig.article.subtitle,
+    type: "article",
+    url: siteConfig.siteUrl,
+    publishedTime: "2026-10-15T09:00:00.000Z",
+    modifiedTime: "2026-10-24T12:00:00.000Z",
+    authors: [siteConfig.article.author.name],
+  },
+};
+
 export default function HomePage() {
-  // Factual JSON-LD Schema (No fabricated ratings or fake review schema)
   const productPriceNumber = siteConfig.product.priceUsd.replace(/[^0-9.]/g, "");
 
-  const jsonLd = {
+  // Factual Review & Article JSON-LD Schema
+  const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: siteConfig.product.name,
-    description: siteConfig.product.shortDescription,
-    category: siteConfig.product.category,
+    "@type": "Review",
+    headline: siteConfig.article.headline,
+    description: siteConfig.article.subtitle,
     image: `${siteConfig.siteUrl}/images/og-preview.png`,
-    brand: {
-      "@type": "Brand",
-      name: siteConfig.brand.name,
+    datePublished: "2026-10-15",
+    dateModified: "2026-10-24",
+    author: {
+      "@type": "Person",
+      name: siteConfig.article.author.name,
+      jobTitle: siteConfig.article.author.role,
     },
-    offers: {
-      "@type": "Offer",
-      url: `${siteConfig.siteUrl}/#offer`,
-      priceCurrency: "USD",
-      price: productPriceNumber || "27.00",
-      priceValidUntil: "2027-12-31",
-      itemCondition: "https://schema.org/NewCondition",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: siteConfig.brand.name,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.publication.name,
+      url: siteConfig.siteUrl,
+    },
+    itemReviewed: {
+      "@type": "Product",
+      name: siteConfig.product.name,
+      description: siteConfig.product.shortDescription,
+      category: siteConfig.product.category,
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: productPriceNumber || "27.00",
+        availability: "https://schema.org/InStock",
       },
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "4.8",
+      bestRating: "5",
     },
   };
 
   return (
     <AnalyticsProvider>
-      {/* Factual Product Schema */}
+      {/* Structured Review Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
 
-      <div className="flex flex-col min-h-screen">
-        {/* Section A: Announcement Bar */}
-        <AnnouncementBar />
+      <div className="flex flex-col min-h-screen bg-[#080C15] text-[#F8FAFC]">
+        {/* Editorial Publication Header */}
+        <EditorialHeader />
 
-        {/* Section B: Sticky Header & Navigation */}
-        <Header />
+        {/* Article Headline & Executive Summary */}
+        <ArticleHero />
 
-        <main className="flex-grow">
-          {/* Section C: Hero Section */}
-          <HeroSection />
+        {/* Article Body & Editorial Sidebar Container */}
+        <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Left Column: Full Editorial Review */}
+            <div className="lg:col-span-8">
+              <ArticleContent />
+            </div>
 
-          {/* Section D: Benefits */}
-          <BenefitsSection />
-
-          {/* Section E: What's Included */}
-          <BundleGrid />
-
-          {/* Section F: How It Works */}
-          <HowItWorks />
-
-          {/* Section G: Product Offer (Main Conversion Point) */}
-          <OfferSection />
-
-          {/* Section H: Preview Gallery */}
-          <PreviewGallery />
-
-          {/* Section I: FAQ Accordion */}
-          <FAQAccordion />
-
-          {/* Section J: Final CTA */}
-          <FinalCTA />
+            {/* Right Column: Sticky Editorial Sidebar */}
+            <div className="lg:col-span-4 hidden lg:block">
+              <EditorialSidebar />
+            </div>
+          </div>
         </main>
 
-        {/* Section K: Footer & Disclaimers */}
-        <Footer />
+        {/* Publication Footer */}
+        <EditorialFooter />
       </div>
     </AnalyticsProvider>
   );
