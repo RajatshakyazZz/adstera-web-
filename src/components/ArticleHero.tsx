@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import { buildCheckoutUrlWithUtm, trackEvent } from "@/lib/tracking";
+import { AdsterraBanner } from "@/components/ads/AdsterraBanner";
 
 export function ArticleHero() {
   const checkoutUrlWithUtm = buildCheckoutUrlWithUtm(siteConfig.product.checkoutUrl);
@@ -170,6 +171,30 @@ export function ArticleHero() {
             </a>
           </div>
         </div>
+
+        {/* Adsterra Top Leaderboard Slot: 468x60 on Desktop, 320x50 on Mobile */}
+        {siteConfig.ads.enabled && (
+          <div className="pt-4 not-prose flex justify-center">
+            {/* Desktop Banner 468x60 */}
+            <div className="hidden sm:block">
+              <AdsterraBanner
+                bannerKey={siteConfig.ads.banner468x60.key}
+                width={siteConfig.ads.banner468x60.width}
+                height={siteConfig.ads.banner468x60.height}
+                label="Featured Advertisement"
+              />
+            </div>
+            {/* Mobile Banner 320x50 */}
+            <div className="sm:hidden block">
+              <AdsterraBanner
+                bannerKey={siteConfig.ads.banner320x50.key}
+                width={siteConfig.ads.banner320x50.width}
+                height={siteConfig.ads.banner320x50.height}
+                label="Featured Advertisement"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

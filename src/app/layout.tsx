@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/config/siteConfig";
 
@@ -76,6 +77,20 @@ export default function RootLayout({
         <link rel="icon" href="/icon" sizes="any" />
       </head>
       <body className="min-h-screen bg-[#080C15] text-[#F8FAFC] antialiased flex flex-col font-sans">
+        {siteConfig.ads.enabled && (
+          <>
+            {/* Adsterra Popunder Script (ID: 31902609) */}
+            <Script
+              src={siteConfig.ads.popunderScript}
+              strategy="afterInteractive"
+            />
+            {/* Adsterra Social Bar Script (ID: 31902610) */}
+            <Script
+              src={siteConfig.ads.socialBarScript}
+              strategy="afterInteractive"
+            />
+          </>
+        )}
         {children}
       </body>
     </html>

@@ -14,6 +14,9 @@ import { BundleGrid } from "@/components/BundleGrid";
 import { PreviewGallery } from "@/components/PreviewGallery";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { buildCheckoutUrlWithUtm, trackEvent } from "@/lib/tracking";
+import { AdsterraBanner } from "@/components/ads/AdsterraBanner";
+import { AdsterraNative } from "@/components/ads/AdsterraNative";
+import { AdsterraSmartlinkCard } from "@/components/ads/AdsterraSmartlinkCard";
 
 export function ArticleContent() {
   const checkoutUrlWithUtm = buildCheckoutUrlWithUtm(siteConfig.product.checkoutUrl);
@@ -91,6 +94,13 @@ export function ArticleContent() {
           <BundleGrid />
         </div>
       </section>
+
+      {/* Adsterra Smartlink Partner Card */}
+      {siteConfig.ads.enabled && (
+        <div className="not-prose">
+          <AdsterraSmartlinkCard variant="inline" />
+        </div>
+      )}
 
       {/* In-Article Recommendation Break */}
       <div className="not-prose my-10 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-950/60 via-indigo-950/70 to-slate-900 border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
@@ -176,6 +186,13 @@ export function ArticleContent() {
           </table>
         </div>
       </section>
+
+      {/* Adsterra Native Banner Unit (ID: 31902611) */}
+      {siteConfig.ads.enabled && (
+        <div className="not-prose">
+          <AdsterraNative />
+        </div>
+      )}
 
       {/* Chapter 5: Pros & Cons Analysis */}
       <section id="pros-cons" className="space-y-6">
@@ -299,6 +316,28 @@ export function ArticleContent() {
           .
         </p>
       </section>
+
+      {/* Adsterra Mid-Article Banner Slot: 468x60 on Desktop, 320x50 on Mobile */}
+      {siteConfig.ads.enabled && (
+        <div className="not-prose flex justify-center py-4">
+          <div className="hidden sm:block">
+            <AdsterraBanner
+              bannerKey={siteConfig.ads.banner468x60.key}
+              width={siteConfig.ads.banner468x60.width}
+              height={siteConfig.ads.banner468x60.height}
+              label="Sponsored Advertisement"
+            />
+          </div>
+          <div className="sm:hidden block">
+            <AdsterraBanner
+              bannerKey={siteConfig.ads.banner320x50.key}
+              width={siteConfig.ads.banner320x50.width}
+              height={siteConfig.ads.banner320x50.height}
+              label="Sponsored Advertisement"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Chapter 8: Frequently Asked Questions */}
       <section id="faq" className="space-y-6">

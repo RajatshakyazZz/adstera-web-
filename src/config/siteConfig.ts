@@ -82,6 +82,36 @@ export const siteConfig = {
       "For solo creators, faceless theme-page curators, and social media managers looking to sidestep $40–$80/month stock footage subscriptions, this 130+ bundle delivers remarkable organizational value and pristine 9:16 vertical video assets ready for immediate posting.",
   },
 
+  ads: {
+    enabled: true,
+    popunderScript:
+      "https://pl32003108.profitableratecpmnetwork.com/c9/32/22/c9322222af66563fd448881c28422140.js",
+    socialBarScript:
+      "https://pl32003109.profitableratecpmnetwork.com/23/6d/24/236d24a23f484bacd2735e00256ad491.js",
+    nativeBanner: {
+      containerId: "container-cbbcee4cde1f78b488df89b32eaea9de",
+      scriptSrc:
+        "https://pl32003110.profitableratecpmnetwork.com/cbbcee4cde1f78b488df89b32eaea9de/invoke.js",
+    },
+    banner468x60: {
+      key: "2a4cb2e5acba41d06bcc3ae6931ea0ab",
+      width: 468,
+      height: 60,
+    },
+    banner160x300: {
+      key: "94ad7437bcdd94063f1fc973e11d860a",
+      width: 160,
+      height: 300,
+    },
+    banner320x50: {
+      key: "ddf7379eafcdc549df82b0bd061ffb97",
+      width: 320,
+      height: 50,
+    },
+    smartlinkUrl:
+      "https://www.profitableratecpmnetwork.com/hiix7yxws?key=b95f0c17ee20d36b27f7cc93da9148e4",
+  },
+
   product: {
     id: "bundle-130-digital-content",
     name: "130+ Digital Content & Reels Bundles",

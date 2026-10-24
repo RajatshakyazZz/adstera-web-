@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import { buildCheckoutUrlWithUtm, trackEvent } from "@/lib/tracking";
+import { AdsterraBanner } from "@/components/ads/AdsterraBanner";
+import { AdsterraSmartlinkCard } from "@/components/ads/AdsterraSmartlinkCard";
 
 export function EditorialSidebar() {
   const checkoutUrlWithUtm = buildCheckoutUrlWithUtm(siteConfig.product.checkoutUrl);
@@ -124,6 +126,23 @@ export function EditorialSidebar() {
           {siteConfig.article.author.bio}
         </p>
       </div>
+
+      {/* Adsterra Smartlink Sponsored Deals Card */}
+      {siteConfig.ads.enabled && (
+        <AdsterraSmartlinkCard variant="sidebar" />
+      )}
+
+      {/* Adsterra Skyscraper Banner 160x300 */}
+      {siteConfig.ads.enabled && (
+        <div className="flex justify-center pt-2">
+          <AdsterraBanner
+            bannerKey={siteConfig.ads.banner160x300.key}
+            width={siteConfig.ads.banner160x300.width}
+            height={siteConfig.ads.banner160x300.height}
+            label="Sponsored Partner"
+          />
+        </div>
+      )}
     </aside>
   );
 }

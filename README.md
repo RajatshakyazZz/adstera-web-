@@ -4,9 +4,23 @@ An authoritative, high-converting **editorial review & publication layout** buil
 
 ---
 
-## 📰 Publication Concept & Transformation
+## 📈 Active Adsterra Ad Placements (7 Ad Units Configured)
 
-Rather than presenting a generic sales page that can suffer from ad blindness or low trust, this format frames the **130+ Digital Content & Reels Bundle** as an **independent editorial benchmark and hands-on review**:
+All 7 Adsterra ad formats for domain `adstera-web.vercel.app` are integrated into natural, high-performance locations:
+
+| # | Ad Format | Unit Name / Key | Location in Application | Implementation Method |
+|---|---|---|---|---|
+| 1 | **Popunder** | `Popunder_1` (`c9322222af66563fd448881c28422140`) | Global / All Pages | Injected in `src/app/layout.tsx` via `next/script` |
+| 2 | **Social Bar** | `SocialBar_1` (`236d24a23f484bacd2735e00256ad491`) | Global / All Pages | Injected in `src/app/layout.tsx` via `next/script` |
+| 3 | **Native Banner** | `NativeBanner_1` (`container-cbbcee4cde1f78b488df89b32eaea9de`) | Mid-Article (Post-Chapter 4) | Embedded React component with dynamic `invoke.js` |
+| 4 | **Banner 468x60** | `468x60_1` (`2a4cb2e5acba41d06bcc3ae6931ea0ab`) | Article Header & Mid-Article (Desktop) | Isolated `srcDoc` iframe container |
+| 5 | **Banner 160x300** | `160x300_1` (`94ad7437bcdd94063f1fc973e11d860a`) | Editorial Sidebar Skyscraper (Desktop) | Isolated `srcDoc` iframe container |
+| 6 | **Banner 320x50** | `320x50_1` (`ddf7379eafcdc549df82b0bd061ffb97`) | Article Header & Mid-Article (Mobile) | Responsive `sm:hidden` isolated `srcDoc` iframe |
+| 7 | **Smartlink** | `Smartlink_1` (`b95f0c17ee20d36b27f7cc93da9148e4`) | In-Article Bonus Card & Sidebar Offer Card | High-converting partner deal callouts |
+
+---
+
+## 📰 Publication Concept & Review Layout
 
 - **Publication Masthead**: *CreatorPulse Journal* (Independent Creator Economy & Digital Media Insights).
 - **Review Article**: *"The 130+ Creator Toolkit Review: Can Pre-Curated Video Bundles Save You 20+ Hours a Week?"*
@@ -22,7 +36,7 @@ Rather than presenting a generic sales page that can suffer from ad blindness or
   7. Licensing & Commercial Rights Explanation.
   8. Frequently Asked Questions (7 essential buyer questions answered).
   9. Final Scorecard & Official Access Link.
-- **Sticky Editorial Sidebar**: Quick Jump Table of Contents, Product Specs Card, Reviewer Bio, and Checkout Link.
+- **Sticky Editorial Sidebar**: Quick Jump Table of Contents, Product Specs Card, Reviewer Bio, 160x300 Banner, and Smartlink Partner Deal.
 
 ---
 
@@ -31,7 +45,7 @@ Rather than presenting a generic sales page that can suffer from ad blindness or
 When driving Adsterra native ads, popunder, or banner traffic, direct users with your standard UTM parameters:
 
 ```text
-https://your-domain.vercel.app/?utm_source=adsterra&utm_medium=native&utm_campaign=creator_tools_review&utm_content=article_v1
+https://adstera-web.vercel.app/?utm_source=adsterra&utm_medium=cpc&utm_campaign=us_creators_130bundle&utm_content=article_v1
 ```
 
 1. The page automatically extracts and caches all UTM tags in `sessionStorage`.
@@ -67,10 +81,9 @@ npm run start
    ```bash
    git push origin main
    ```
-2. In [Vercel](https://vercel.com), click **Add New... > Project** and import the repository.
-3. Configure your Environment Variables:
-   - `NEXT_PUBLIC_SITE_URL`: Your live domain (e.g., `https://creator-bundles.vercel.app`).
-   - `NEXT_PUBLIC_PRODUCT_PRICE_USD`: `$27` (or your verified product price).
+2. In [Vercel](https://vercel.com), the connected repository will automatically trigger a new deployment.
+3. Configure your Environment Variables in Project Settings:
+   - `NEXT_PUBLIC_SITE_URL`: `https://adstera-web.vercel.app`
+   - `NEXT_PUBLIC_PRODUCT_PRICE_USD`: `$27`
    - `NEXT_PUBLIC_CHECKOUT_URL`: Your actual payment checkout link.
    - `NEXT_PUBLIC_SUPPORT_EMAIL`: Your support contact email.
-4. Click **Deploy**.
